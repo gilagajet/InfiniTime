@@ -35,6 +35,7 @@ Fast open-source firmware for the [PineTime smartwatch](https://www.pine64.org/p
 - charging plug symbol is now green
 - battery symbol follows same color scheme than percentage
 - darker notification background
+- darker buttons in applist, quicksettings and music app
 
 The builds always include the most recent changes in upstream/develop.
 
