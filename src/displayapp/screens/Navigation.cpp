@@ -19,6 +19,7 @@
 #include <cstdint>
 #include "displayapp/DisplayApp.h"
 #include "components/ble/NavigationService.h"
+#include "displayapp/InfiniTimeTheme.h"
 
 using namespace Pinetime::Applications::Screens;
 
@@ -192,7 +193,7 @@ void Navigation::Refresh() {
     if (progress > 90) {
       lv_obj_set_style_local_bg_color(barProgress, LV_BAR_PART_INDIC, LV_STATE_DEFAULT, LV_COLOR_RED);
     } else {
-      lv_obj_set_style_local_bg_color(barProgress, LV_BAR_PART_INDIC, LV_STATE_DEFAULT, lv_color_hex(0x24FF00));
+      lv_obj_set_style_local_bg_color(barProgress, LV_BAR_PART_INDIC, LV_STATE_DEFAULT, Colors::orange);
     }
   }
 }

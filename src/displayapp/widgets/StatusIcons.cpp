@@ -21,7 +21,7 @@ void StatusIcons::Create() {
   lv_label_set_text_static(bleIcon, Screens::Symbols::bluetooth);
 
   batteryPlug = lv_label_create(container, nullptr);
-  lv_obj_set_style_local_text_color(batteryPlug, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, lv_color_hex(0x24FF00));
+  lv_obj_set_style_local_text_color(batteryPlug, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_LIME);
   lv_label_set_text_static(batteryPlug, Screens::Symbols::plug);
 
   batteryValue = lv_label_create(container, nullptr);

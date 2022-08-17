@@ -2,7 +2,8 @@
 #include "displayapp/DisplayApp.h"
 #include "displayapp/screens/Symbols.h"
 #include "displayapp/screens/BatteryIcon.h"
-#include <components/ble/BleController.h>
+#include "components/ble/BleController.h"
+#include "displayapp/InfiniTimeTheme.h"
 
 using namespace Pinetime::Applications::Screens;
 
@@ -54,7 +55,7 @@ QuickSettings::QuickSettings(Pinetime::Applications::DisplayApp* app,
 
   lv_style_init(&btn_style);
   lv_style_set_radius(&btn_style, LV_STATE_DEFAULT, buttonHeight / 4);
-  lv_style_set_bg_color(&btn_style, LV_STATE_DEFAULT, lv_color_hex(0x292929));
+  lv_style_set_bg_color(&btn_style, LV_STATE_DEFAULT, Colors::bgAlt);
 
   btn1 = lv_btn_create(lv_scr_act(), nullptr);
   btn1->user_data = this;
@@ -82,6 +83,7 @@ QuickSettings::QuickSettings(Pinetime::Applications::DisplayApp* app,
   btn3 = lv_btn_create(lv_scr_act(), nullptr);
   btn3->user_data = this;
   lv_obj_set_event_cb(btn3, ButtonEventHandler);
+  lv_btn_set_checkable(btn3, true);
   lv_obj_add_style(btn3, LV_BTN_PART_MAIN, &btn_style);
   lv_obj_set_style_local_bg_color(btn3, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_RED);
   lv_obj_set_style_local_bg_color(btn3, LV_BTN_PART_MAIN, specialState, LV_COLOR_MAKE(0x60, 0x00, 0xff));
