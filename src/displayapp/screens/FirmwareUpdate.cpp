@@ -18,7 +18,6 @@ FirmwareUpdate::FirmwareUpdate(Pinetime::Applications::DisplayApp* app, Pinetime
   lv_obj_align(bar1, nullptr, LV_ALIGN_CENTER, 0, 0);
   lv_bar_set_range(bar1, 0, 1000);
   lv_bar_set_value(bar1, 0, LV_ANIM_OFF);
-  lv_obj_set_style_local_text_color(bar1, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_BLACK);
 
   percentLabel = lv_label_create(lv_scr_act(), nullptr);
   lv_label_set_text_static(percentLabel, "Waiting...");
