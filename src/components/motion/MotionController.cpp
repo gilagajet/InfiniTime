@@ -11,8 +11,6 @@ void MotionController::Update(int16_t x, int16_t y, int16_t z, uint32_t nbSteps)
     service->OnNewMotionValues(x, y, z);
   }
 
-  deltaY = y - this->y;
-  deltaZ = z - this->z;
   this->x = x;
   this->y = y;
   this->z = z;
@@ -23,27 +21,27 @@ void MotionController::Update(int16_t x, int16_t y, int16_t z, uint32_t nbSteps)
   }
 }
 
-bool MotionController::ShouldRaiseWake() const {
-  constexpr int16_t ySwitchThresh = -768;
-  constexpr int16_t speedModifier = 8;
-  constexpr int16_t xThresh = 512;
-  constexpr int16_t yThresh = 0;
-  constexpr int16_t requiredSpeed = 256;
+bool MotionController::Should_RaiseWake(bool isSleeping) {
+  if ((x + 335) <= 670 && z < 0) {
+    if (not isSleeping) {
+      if (y <= 0) {
+        return false;
+      } else {
+        lastYForWakeUp = 0;
+        return false;
+      }
+    }
 
-  if (x < -xThresh || x > xThresh || y > yThresh) {
-    return false;
+    if (y >= 0) {
+      lastYForWakeUp = 0;
+      return false;
+    }
+    if (y + 230 < lastYForWakeUp) {
+      lastYForWakeUp = y;
+      return true;
+    }
   }
-
-  // Use z here because more computationally intensive maths would be necessary to accurately detect movement for y < -768
-  if (y < ySwitchThresh) {
-    return deltaZ > requiredSpeed;
-  }
-  // y / 8 is an approximation of 2 * asin(y / 1024) that is reasonably accurate for -768 < y < 768
-  // y - deltaY / 2 is halfway between the previous y value and the current one
-  if (z > 0) {
-    return deltaY > requiredSpeed + (y - deltaY / 2) / speedModifier;
-  }
-  return deltaY < -requiredSpeed - (y - deltaY / 2) / speedModifier;
+  return false;
 }
 
 bool MotionController::Should_ShakeWake(uint16_t thresh) {
