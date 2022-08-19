@@ -25,6 +25,8 @@ FirmwareUpdate::FirmwareUpdate(Pinetime::Applications::DisplayApp* app, Pinetime
   lv_obj_align(percentLabel, bar1, LV_ALIGN_OUT_TOP_MID, 0, 60);
   taskRefresh = lv_task_create(RefreshTaskCallback, LV_DISP_DEF_REFR_PERIOD, LV_TASK_PRIO_MID, this);
   startTime = xTaskGetTickCount();
+
+  lv_obj_set_style_local_bg_color(lv_scr_act(), LV_OBJ_PART_MAIN, LV_STATE_DEFAULT, lv_color_hex(0x24ff00));
 }
 
 FirmwareUpdate::~FirmwareUpdate() {
