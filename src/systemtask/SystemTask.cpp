@@ -486,12 +486,13 @@ void SystemTask::UpdateMotion() {
   motionController.IsSensorOk(motionSensor.IsOk());
   motionController.Update(motionValues.x, motionValues.y, motionValues.z, motionValues.steps);
 
-  if (settingsController.GetNotificationStatus() != Controllers::Settings::Notification::Sleep &&
-      ((settingsController.isWakeUpModeOn(Pinetime::Controllers::Settings::WakeUpMode::RaiseWrist) &&
-        motionController.Should_RaiseWake(state == SystemTaskState::Sleeping)) ||
-       (settingsController.isWakeUpModeOn(Pinetime::Controllers::Settings::WakeUpMode::Shake) &&
-        motionController.Should_ShakeWake(settingsController.GetShakeThreshold())))) {
-    GoToRunning();
+  if (settingsController.GetNotificationStatus() != Controllers::Settings::Notification::Sleep) {
+    if ((settingsController.isWakeUpModeOn(Pinetime::Controllers::Settings::WakeUpMode::RaiseWrist) &&
+         motionController.Should_RaiseWake(state == SystemTaskState::Sleeping)) ||
+        (settingsController.isWakeUpModeOn(Pinetime::Controllers::Settings::WakeUpMode::Shake) &&
+         motionController.Should_ShakeWake(settingsController.GetShakeThreshold()))) {
+      GoToRunning();
+    }
   }
 }
 
