@@ -237,7 +237,7 @@ void DisplayApp::Refresh() {
                 LoadApp(Apps::Clock, DisplayApp::FullRefreshDirections::RightAnim);
                 break;
               case TouchEvents::SwipeDown:
-                LoadApp(Apps::Launcher, DisplayApp::FullRefreshDirections::Down);
+                LoadApp(Apps::Clock, DisplayApp::FullRefreshDirections::Down);
                 break;
             }
           } else if (currentApp == Apps::QuickSettings) {
