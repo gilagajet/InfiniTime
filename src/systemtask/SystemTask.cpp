@@ -197,8 +197,8 @@ void SystemTask::Work() {
 
   batteryController.MeasureVoltage();
 
-  idleTimer = xTimerCreate("idleTimer", pdMS_TO_TICKS(2000), pdFALSE, this, IdleTimerCallback);
-  dimTimer = xTimerCreate("dimTimer", pdMS_TO_TICKS(settingsController.GetScreenTimeOut() - 2000), pdFALSE, this, DimTimerCallback);
+  idleTimer = xTimerCreate("idleTimer", pdMS_TO_TICKS(1000), pdFALSE, this, IdleTimerCallback);
+  dimTimer = xTimerCreate("dimTimer", pdMS_TO_TICKS(settingsController.GetScreenTimeOut() - 1000), pdFALSE, this, DimTimerCallback);
   measureBatteryTimer = xTimerCreate("measureBattery", batteryMeasurementPeriod, pdTRUE, this, MeasureBatteryTimerCallback);
   xTimerStart(dimTimer, 0);
   xTimerStart(measureBatteryTimer, portMAX_DELAY);
@@ -224,7 +224,7 @@ void SystemTask::Work() {
           doNotGoToSleep = true;
           break;
         case Messages::UpdateTimeOut:
-          xTimerChangePeriod(dimTimer, pdMS_TO_TICKS(settingsController.GetScreenTimeOut() - 2000), 0);
+          xTimerChangePeriod(dimTimer, pdMS_TO_TICKS(settingsController.GetScreenTimeOut() - 1000), 0);
           break;
         case Messages::GoToRunning:
           spi.Wakeup();
