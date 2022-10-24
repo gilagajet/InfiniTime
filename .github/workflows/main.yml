@@ -13,6 +13,9 @@ on:
       - 'doc/**'
       - '**.md'
 
+  # Allows you to run this workflow manually from the Actions tab
+  # this can be useful for running workflows for other branches than develop
+  workflow_dispatch:
 
 jobs:
   build-firmware:
