@@ -1,8 +1,5 @@
 # [InfiniTime](https://github.com/InfiniTimeOrg/InfiniTime)
 
-### Development paused
-I cannot work at this project at the moment, as both my sealed and devkit pinetime broke down.
-
 [![Build PineTime Firmware](https://github.com/InfiniTimeOrg/InfiniTime/workflows/Build%20PineTime%20Firmware/badge.svg?branch=master)](https://github.com/InfiniTimeOrg/InfiniTime/actions)
 
 ![InfiniTime logo](doc/logo/infinitime-logo-small.jpg "InfiniTime Logo")
