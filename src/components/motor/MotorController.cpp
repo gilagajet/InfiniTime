@@ -15,7 +15,7 @@ void MotorController::Init() {
 
 void MotorController::Ring(TimerHandle_t xTimer) {
   auto* motorController = static_cast<MotorController*>(pvTimerGetTimerID(xTimer));
-  motorController->RunForDuration(50);
+  motorController->RunForDuration(100);
 }
 
 void MotorController::RunForDuration(uint16_t motorDuration) {
@@ -25,7 +25,7 @@ void MotorController::RunForDuration(uint16_t motorDuration) {
 }
 
 void MotorController::StartRinging() {
-  RunForDuration(50);
+  RunForDuration(100);
   xTimerStart(longVib, 0);
 }
 
