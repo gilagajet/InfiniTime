@@ -23,7 +23,7 @@ Fast open-source firmware for the [PineTime smartwatch](https://www.pine64.org/p
 
 - Longer alarm timeout (3m) than default (60s) (#945 #1233)
 - longer timer vibration (1000ms) than default (35ms) (#391)
-- longer notification vibration (500ms) than default (35ms)
+- longer notification vibration (250ms) than default (35ms)
 - longer call notification vibration intervall (100ms) than default (35ms)
 - music app accessible by swipe-left on watchface
 - music app opens with volume controls by default
