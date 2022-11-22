@@ -11,6 +11,8 @@ Fast open-source firmware for the [PineTime smartwatch](https://www.pine64.org/p
 
 ### This Fork comes with various design and functional modifications  ###
 
+**experimental/unstable!**
+
 
 <p float="left">
 	<img src="https://user-images.githubusercontent.com/54219098/184215790-faa65165-49b2-4cf9-bbf2-74258f948ea9.png" width="250" />
@@ -42,13 +44,11 @@ Fast open-source firmware for the [PineTime smartwatch](https://www.pine64.org/p
 
 The builds always include the most recent changes in upstream/develop.
 
-**experimental/unstable!**
 
 
 ### Planned Features ###
 
 - X/Y HRM graph
-- dismiss/delete new notification by swiping
 
 
 Lets find out together what else is possible, happy to accept pull requests with new ideas
