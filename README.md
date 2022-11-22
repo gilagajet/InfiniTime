@@ -38,6 +38,7 @@ Fast open-source firmware for the [PineTime smartwatch](https://www.pine64.org/p
 - battery symbol follows same color scheme than percentage
 - darker notification background
 - darker buttons in applist, quicksettings and music app
+- dismiss notification by swipe-right (#1332 #1232)
 
 The builds always include the most recent changes in upstream/develop.
 
