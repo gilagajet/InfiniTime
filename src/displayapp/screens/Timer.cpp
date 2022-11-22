@@ -123,7 +123,7 @@ void Timer::SetTimerRunning() {
   minuteCounter.HideControls();
   secondCounter.HideControls();
   lv_label_set_text_static(txtPlayPause, "Pause");
-  lv_obj_set_style_local_text_color(txtPlayPause, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, Colors::green);
+  lv_obj_set_style_local_text_color(txtPlayPause, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_MAKE(0x24, 0xFF, 0x0));
 }
 
 void Timer::SetTimerStopped() {

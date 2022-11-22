@@ -36,7 +36,7 @@ namespace Pinetime::Applications::Screens {
     lv_objmask_mask_t* highlightMask;
 
     lv_task_t* taskRefresh;
-    Widgets::Counter minuteCounter = Widgets::Counter(0, 59, jetbrains_mono_76);
+    Widgets::Counter minuteCounter = Widgets::Counter(0, 99, jetbrains_mono_76);
     Widgets::Counter secondCounter = Widgets::Counter(0, 59, jetbrains_mono_76);
 
     bool buttonPressing = false;
