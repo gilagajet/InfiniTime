@@ -164,15 +164,9 @@ bool Notifications::OnTouchEvent(Pinetime::Applications::TouchEvents event) {
   switch (event) {
     case Pinetime::Applications::TouchEvents::SwipeRight:
       if (validDisplay) {
-        Controllers::NotificationManager::Notification previousNotification;
         auto previousMessage = notificationManager.GetPrevious(currentId);
         auto nextMessage = notificationManager.GetNext(currentId);
-        if (!previousMessage.valid) {
-          // dismissed last message (like 5/5), need to go one message down (like 4/4)
-          afterDismissNextMessageFromAbove = false; // show next message coming from below
-        } else {
-          afterDismissNextMessageFromAbove = true; // show next message coming from above
-        }
+        afterDismissNextMessageFromAbove = previousMessage.valid;
         notificationManager.Dismiss(currentId);
         if (previousMessage.valid) {
           currentId = previousMessage.id;
@@ -289,7 +283,7 @@ Notifications::NotificationItem::NotificationItem(const char* title,
 
   lv_obj_t* alert_count = lv_label_create(container, nullptr);
   lv_label_set_text_fmt(alert_count, "%i/%i", notifNr, notifNb);
-  lv_obj_align(alert_count, NULL, LV_ALIGN_IN_TOP_RIGHT, 0, 16);
+  lv_obj_align(alert_count, nullptr, LV_ALIGN_IN_TOP_RIGHT, 0, 16);
 
   lv_obj_t* alert_type = lv_label_create(container, nullptr);
   lv_obj_set_style_local_text_color(alert_type, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_LIME);
@@ -307,7 +301,7 @@ Notifications::NotificationItem::NotificationItem(const char* title,
   }
   lv_label_set_long_mode(alert_type, LV_LABEL_LONG_SROLL_CIRC);
   lv_obj_set_width(alert_type, 180);
-  lv_obj_align(alert_type, NULL, LV_ALIGN_IN_TOP_LEFT, 0, 16);
+  lv_obj_align(alert_type, nullptr, LV_ALIGN_IN_TOP_LEFT, 0, 16);
 
   lv_obj_t* alert_subject = lv_label_create(subject_container, nullptr);
   lv_label_set_long_mode(alert_subject, LV_LABEL_LONG_BREAK);
@@ -335,7 +329,7 @@ Notifications::NotificationItem::NotificationItem(const char* title,
       bt_accept->user_data = this;
       lv_obj_set_event_cb(bt_accept, CallEventHandler);
       lv_obj_set_size(bt_accept, 76, 76);
-      lv_obj_align(bt_accept, NULL, LV_ALIGN_IN_BOTTOM_LEFT, 0, 0);
+      lv_obj_align(bt_accept, nullptr, LV_ALIGN_IN_BOTTOM_LEFT, 0, 0);
       label_accept = lv_label_create(bt_accept, nullptr);
       lv_label_set_text_static(label_accept, Symbols::phone);
       lv_obj_set_style_local_bg_color(bt_accept, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, Colors::highlight);
@@ -344,7 +338,7 @@ Notifications::NotificationItem::NotificationItem(const char* title,
       bt_reject->user_data = this;
       lv_obj_set_event_cb(bt_reject, CallEventHandler);
       lv_obj_set_size(bt_reject, 76, 76);
-      lv_obj_align(bt_reject, NULL, LV_ALIGN_IN_BOTTOM_MID, 0, 0);
+      lv_obj_align(bt_reject, nullptr, LV_ALIGN_IN_BOTTOM_MID, 0, 0);
       label_reject = lv_label_create(bt_reject, nullptr);
       lv_label_set_text_static(label_reject, Symbols::phoneSlash);
       lv_obj_set_style_local_bg_color(bt_reject, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_RED);
@@ -353,7 +347,7 @@ Notifications::NotificationItem::NotificationItem(const char* title,
       bt_mute->user_data = this;
       lv_obj_set_event_cb(bt_mute, CallEventHandler);
       lv_obj_set_size(bt_mute, 76, 76);
-      lv_obj_align(bt_mute, NULL, LV_ALIGN_IN_BOTTOM_RIGHT, 0, 0);
+      lv_obj_align(bt_mute, nullptr, LV_ALIGN_IN_BOTTOM_RIGHT, 0, 0);
       label_mute = lv_label_create(bt_mute, nullptr);
       lv_label_set_text_static(label_mute, Symbols::volumMute);
       lv_obj_set_style_local_bg_color(bt_mute, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, Colors::lightGray);
