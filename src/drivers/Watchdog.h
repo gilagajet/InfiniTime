@@ -9,11 +9,9 @@ namespace Pinetime {
       void Setup(uint8_t timeoutSeconds);
       void Start();
       void Kick();
-
       ResetReasons ResetReason() const {
         return resetReason;
       }
-
       static const char* ResetReasonToString(ResetReasons reason);
 
     private:
@@ -25,7 +23,6 @@ namespace Pinetime {
     public:
       WatchdogView(const Watchdog& watchdog) : watchdog {watchdog} {
       }
-
       Watchdog::ResetReasons ResetReason() const {
         return watchdog.ResetReason();
       }

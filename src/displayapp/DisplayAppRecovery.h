@@ -22,7 +22,6 @@ namespace Pinetime {
     class Cst816S;
     class WatchdogView;
   }
-
   namespace Controllers {
     class Settings;
     class Battery;
@@ -64,11 +63,9 @@ namespace Pinetime {
                  Pinetime::Controllers::TouchHandler& touchHandler,
                  Pinetime::Controllers::FS& filesystem);
       void Start();
-
       void Start(Pinetime::System::BootErrors) {
         Start();
       };
-
       void PushMessage(Pinetime::Applications::Display::Messages msg);
       void Register(Pinetime::System::SystemTask* systemTask);
 

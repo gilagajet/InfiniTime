@@ -37,6 +37,7 @@ namespace Pinetime {
     private:
       void InitDisplay();
       void InitTouchpad();
+      void InitTheme();
 
       Pinetime::Drivers::St7789& lcd;
       Pinetime::Drivers::Cst816S& touchPanel;
@@ -51,11 +52,9 @@ namespace Pinetime {
       static constexpr uint8_t nbWriteLines = 4;
       static constexpr uint16_t totalNbLines = 320;
       static constexpr uint16_t visibleNbLines = 240;
-
       static constexpr uint8_t MaxScrollOffset() {
         return LV_VER_RES_MAX - nbWriteLines;
       }
-
       FullRefreshDirections scrollDirection = FullRefreshDirections::None;
       uint16_t writeOffset = 0;
       uint16_t scrollOffset = 0;

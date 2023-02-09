@@ -8,7 +8,6 @@ namespace Pinetime {
   namespace Controllers {
     class Ble;
   }
-
   namespace Applications {
     namespace Screens {
 

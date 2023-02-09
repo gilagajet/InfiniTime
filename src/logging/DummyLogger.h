@@ -7,7 +7,6 @@ namespace Pinetime {
     public:
       void Init() override {
       }
-
       void Resume() override {
       }
     };

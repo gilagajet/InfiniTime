@@ -10,7 +10,6 @@ namespace Pinetime {
   namespace Components {
     class LittleVgl;
   }
-
   namespace Applications {
     namespace Screens {
 

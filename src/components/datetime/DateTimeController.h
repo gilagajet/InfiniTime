@@ -9,7 +9,6 @@ namespace Pinetime {
   namespace System {
     class SystemTask;
   }
-
   namespace Controllers {
     class DateTime {
     public:
@@ -31,7 +30,14 @@ namespace Pinetime {
         December
       };
 
-      void SetTime(uint16_t year, uint8_t month, uint8_t day, uint8_t hour, uint8_t minute, uint8_t second, uint32_t systickCounter);
+      void SetTime(uint16_t year,
+                   uint8_t month,
+                   uint8_t day,
+                   uint8_t dayOfWeek,
+                   uint8_t hour,
+                   uint8_t minute,
+                   uint8_t second,
+                   uint32_t systickCounter);
 
       /*
        * setter corresponding to the BLE Set Local Time characteristic.
@@ -45,31 +51,24 @@ namespace Pinetime {
       void SetTimeZone(int8_t timezone, int8_t dst);
 
       void UpdateTime(uint32_t systickCounter);
-
       uint16_t Year() const {
         return year;
       }
-
       Months Month() const {
         return month;
       }
-
       uint8_t Day() const {
         return day;
       }
-
       Days DayOfWeek() const {
         return dayOfWeek;
       }
-
       uint8_t Hours() const {
         return hour;
       }
-
       uint8_t Minutes() const {
         return minute;
       }
-
       uint8_t Seconds() const {
         return second;
       }
@@ -118,11 +117,9 @@ namespace Pinetime {
       std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds> CurrentDateTime() const {
         return currentDateTime;
       }
-
       std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds> UTCDateTime() const {
         return currentDateTime - std::chrono::seconds((tzOffset + dstOffset) * 15 * 60);
       }
-
       std::chrono::seconds Uptime() const {
         return uptime;
       }

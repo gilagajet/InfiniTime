@@ -146,6 +146,7 @@ void Metronome::OnEvent(lv_obj_t* obj, lv_event_t event) {
 bool Metronome::OnTouchEvent(TouchEvents event) {
   if (event == TouchEvents::SwipeDown && allowExit) {
     running = false;
+    return true;
   }
-  return true;
+  return false;
 }

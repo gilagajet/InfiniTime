@@ -7,11 +7,9 @@ namespace Pinetime {
   namespace Applications {
     class HeartRateTask;
   }
-
   namespace System {
     class SystemTask;
   }
-
   namespace Controllers {
     class HeartRateController {
     public:
@@ -23,11 +21,9 @@ namespace Pinetime {
       void Update(States newState, uint8_t heartRate);
 
       void SetHeartRateTask(Applications::HeartRateTask* task);
-
       States State() const {
         return state;
       }
-
       uint8_t HeartRate() const {
         return heartRate;
       }

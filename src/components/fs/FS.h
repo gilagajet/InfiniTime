@@ -35,7 +35,6 @@ namespace Pinetime {
       static size_t getSize() {
         return size;
       }
-
       static size_t getBlockSize() {
         return blockSize;
       }

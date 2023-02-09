@@ -9,7 +9,6 @@ namespace Pinetime {
       bool merged = false;
       unsigned int value = 0;
     };
-
     namespace Screens {
       class Twos : public Screen {
       public:

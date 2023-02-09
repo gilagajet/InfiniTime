@@ -18,7 +18,6 @@ namespace Pinetime {
     class Ble;
     class NotificationManager;
   }
-
   namespace Applications {
     namespace Screens {
 

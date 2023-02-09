@@ -1,6 +1,5 @@
 #pragma once
 #include <cstdint>
-
 namespace Pinetime {
   namespace System {
     enum class Messages : uint8_t {

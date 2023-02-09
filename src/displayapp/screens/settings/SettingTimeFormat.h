@@ -6,7 +6,6 @@
 
 #include "components/settings/Settings.h"
 #include "displayapp/screens/Screen.h"
-#include "displayapp/screens/CheckboxList.h"
 
 namespace Pinetime {
 
@@ -18,8 +17,19 @@ namespace Pinetime {
         SettingTimeFormat(DisplayApp* app, Pinetime::Controllers::Settings& settingsController);
         ~SettingTimeFormat() override;
 
+        void UpdateSelected(lv_obj_t* object, lv_event_t event);
+
       private:
-        CheckboxList checkboxList;
+        struct Option {
+          Controllers::Settings::ClockType clockType;
+          const char* name;
+        };
+        static constexpr std::array<Option, 2> options = {{
+          {Controllers::Settings::ClockType::H12, "12-hour"},
+          {Controllers::Settings::ClockType::H24, "24-hour"},
+        }};
+        Controllers::Settings& settingsController;
+        lv_obj_t* cbOption[options.size()];
       };
     }
   }

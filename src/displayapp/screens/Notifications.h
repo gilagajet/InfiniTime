@@ -13,7 +13,6 @@ namespace Pinetime {
   namespace Controllers {
     class AlertNotificationService;
   }
-
   namespace Applications {
     namespace Screens {
 
@@ -46,11 +45,9 @@ namespace Pinetime {
                            Pinetime::Controllers::AlertNotificationService& alertNotificationService,
                            Pinetime::Controllers::MotorController& motorController);
           ~NotificationItem();
-
           bool IsRunning() const {
             return running;
           }
-
           void OnCallButtonEvent(lv_obj_t*, lv_event_t event);
 
         private:

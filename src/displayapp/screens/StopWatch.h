@@ -24,24 +24,19 @@ namespace Pinetime::Applications::Screens {
     ~StopWatch() override;
     void Refresh() override;
 
-    void playPauseBtnEventHandler();
-    void stopLapBtnEventHandler();
+    void playPauseBtnEventHandler(lv_event_t event);
+    void stopLapBtnEventHandler(lv_event_t event);
     bool OnButtonPushed() override;
-
-  private:
-    void SetInterfacePaused();
-    void SetInterfaceRunning();
-    void SetInterfaceStopped();
 
     void Reset();
     void Start();
     void Pause();
 
+  private:
     Pinetime::System::SystemTask& systemTask;
     States currentState = States::Init;
     TickType_t startTime;
     TickType_t oldTimeElapsed = 0;
-    TickType_t blinkTime = 0;
     static constexpr int maxLapCount = 20;
     TickType_t laps[maxLapCount + 1];
     static constexpr int displayedLaps = 2;

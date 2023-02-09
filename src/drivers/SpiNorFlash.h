@@ -5,7 +5,6 @@
 namespace Pinetime {
   namespace Drivers {
     class Spi;
-
     class SpiNorFlash {
     public:
       explicit SpiNorFlash(Spi& spi);

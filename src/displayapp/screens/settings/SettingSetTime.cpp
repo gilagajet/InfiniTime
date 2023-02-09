@@ -18,7 +18,6 @@ namespace {
       screen->SetTime();
     }
   }
-
   void ValueChangedHandler(void* userData) {
     auto* screen = static_cast<SettingSetTime*>(userData);
     screen->UpdateScreen();
@@ -27,9 +26,8 @@ namespace {
 
 SettingSetTime::SettingSetTime(Pinetime::Applications::DisplayApp* app,
                                Pinetime::Controllers::DateTime& dateTimeController,
-                               Pinetime::Controllers::Settings& settingsController,
-                               Pinetime::Applications::Screens::SettingSetDateTime& settingSetDateTime)
-  : Screen(app), dateTimeController {dateTimeController}, settingsController {settingsController}, settingSetDateTime {settingSetDateTime} {
+                               Pinetime::Controllers::Settings& settingsController)
+  : Screen(app), dateTimeController {dateTimeController}, settingsController {settingsController} {
 
   lv_obj_t* title = lv_label_create(lv_scr_act(), nullptr);
   lv_label_set_text_static(title, "Set current time");
@@ -76,6 +74,8 @@ SettingSetTime::SettingSetTime(Pinetime::Applications::DisplayApp* app,
   lv_obj_set_event_cb(btnSetTime, SetTimeEventHandler);
 
   UpdateScreen();
+  lv_obj_set_state(btnSetTime, LV_STATE_DISABLED);
+  lv_obj_set_state(lblSetTime, LV_STATE_DISABLED);
 }
 
 SettingSetTime::~SettingSetTime() {
@@ -90,6 +90,8 @@ void SettingSetTime::UpdateScreen() {
       lv_label_set_text_static(lblampm, "AM");
     }
   }
+  lv_obj_set_state(btnSetTime, LV_STATE_DEFAULT);
+  lv_obj_set_state(lblSetTime, LV_STATE_DEFAULT);
 }
 
 void SettingSetTime::SetTime() {
@@ -99,9 +101,11 @@ void SettingSetTime::SetTime() {
   dateTimeController.SetTime(dateTimeController.Year(),
                              static_cast<uint8_t>(dateTimeController.Month()),
                              dateTimeController.Day(),
+                             static_cast<uint8_t>(dateTimeController.DayOfWeek()),
                              static_cast<uint8_t>(hoursValue),
                              static_cast<uint8_t>(minutesValue),
                              0,
                              nrf_rtc_counter_get(portNRF_RTC_REG));
-  settingSetDateTime.Quit();
+  lv_obj_set_state(btnSetTime, LV_STATE_DISABLED);
+  lv_obj_set_state(lblSetTime, LV_STATE_DISABLED);
 }
