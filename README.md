@@ -7,6 +7,11 @@
 
 Fast open-source firmware for the [PineTime smartwatch](https://www.pine64.org/pinetime/) with many features, written in modern C++.
 
+## ARCHIVED
+
+I broke the commit history and honestly have no interest in continuing to support this project anymore. 
+
+
 -----
 
 ### This Fork comes with various design and functional modifications  ###
