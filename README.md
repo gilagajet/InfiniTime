@@ -7,6 +7,11 @@
 
 Fast open-source firmware for the [PineTime smartwatch](https://www.pine64.org/pinetime/) with many features, written in modern C++.
 
+## ARCHIVED
+
+I broke the commit history and honestly have no interest in continuing to support this project anymore. 
+
+
 -----
 
 ### This Fork comes with various design and functional modifications  ###
@@ -81,9 +86,6 @@ Lets find out together what else is possible, happy to accept pull requests with
 - [Tips on designing an app UI](doc/ui_guidelines.md)
 - [Bootloader, OTA and DFU](bootloader/README.md)
 - [External resources](doc/ExternalResources.md)
-- [Versioning](doc/versioning.md)
-- [Project branches](doc/branches.md)
-- [Files included in the release notes](doc/filesInReleaseNotes.md)
 
 ### Contributing
 
@@ -110,6 +112,13 @@ Lets find out together what else is possible, happy to accept pull requests with
 
 - [Memory analysis](doc/MemoryAnalysis.md)
 
+### Project management
+
+- [Maintainer's guide](doc/maintainer-guide.md)
+- [Versioning](doc/versioning.md)
+- [Project branches](doc/branches.md)
+- [Files included in the release notes](doc/filesInReleaseNotes.md)
+
 ## Licenses
 
 This project is released under the GNU General Public License version 3 or, at your option, any later version.
@@ -123,7 +132,7 @@ It integrates the following projects:
 
 ## Credits
 
-I’m not working alone on this project. First, many people create PR for this projects. Then, there is the whole #pinetime community : a lot of people all around the world who are hacking, searching, experimenting and programming the Pinetime. We exchange our ideas, experiments and code in the chat rooms and forums.
+I’m not working alone on this project. First, many people create PR for this project. Then, there is the whole #pinetime community : a lot of people all around the world who are hacking, searching, experimenting and programming the Pinetime. We exchange our ideas, experiments and code in the chat rooms and forums.
 
 Here are some people I would like to highlight:
 
